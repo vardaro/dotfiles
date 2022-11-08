@@ -6,6 +6,7 @@ set clipboard=unnamed
 set autoread
 set hidden
 set ignorecase
+set nowrap
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -20,7 +21,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
-Plug 'ms-jpq/chadtree', {'branch': 'chad', 'do': 'python3 -m chadtree deps'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'neovim/nvim-lspconfig'
 Plug 'phaazon/hop.nvim'
@@ -78,9 +78,6 @@ nnoremap ' :History<CR>
 
 " Bind hop.nvim to e
 nnoremap e :HopWord<CR>
-
-" Open tree with space e
-nnoremap <space>e :CHADopen<CR>
 
 " Show path to buffer in lightline
 let g:lightline = {
