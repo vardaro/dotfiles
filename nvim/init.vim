@@ -7,6 +7,8 @@ set autoread
 set hidden
 set ignorecase
 set nowrap
+set nocp                    " 'compatible' is not set
+filetype plugin on          " plugins are enabled
 
 " Plugins
 call plug#begin('~/.vim/plugged')
