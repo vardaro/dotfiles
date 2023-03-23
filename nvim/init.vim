@@ -2,11 +2,13 @@ set mouse=a
 set number
 set numberwidth=2
 set cursorline
-set clipboard=unnamed
+set clipboard+=unnamedplus
 set autoread
 set hidden
 set ignorecase
 set nowrap
+set nocp                    " 'compatible' is not set
+filetype plugin on          " plugins are enabled
 
 " Plugins
 call plug#begin('~/.vim/plugged')
@@ -22,7 +24,8 @@ Plug 'raimondi/delimitmate'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
 Plug 'ryanoasis/vim-devicons'
-Plug 'neovim/nvim-lspconfig'
+"Plug 'neovim/nvim-lspconfig'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'phaazon/hop.nvim'
 
 call plug#end()
@@ -63,15 +66,15 @@ autocmd VimEnter * COQnow -s
 let g:coq_settings = { "keymap.jump_to_mark": v:null }
 
 " Native LSP client
-lua require("lsp_config")
+"lua require("lsp_config")
 
-autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
-autocmd BufWritePre *.go lua goimports(1000)
+"autocmd BufWritePre *.go lua vim.lsp.buf.formatting()
+"autocmd BufWritePre *.go lua goimports(1000)
 
 " Bind fzf to ;
 " prefer 'fd' over 'find' as fd will filter .gitignore directories
 nnoremap ; :FZF<CR>
-let $FZF_DEFAULT_COMMAND='fd --type f'
+let $FZF_DEFAULT_COMMAND='fdfind --type f'
 
 " History to '
 nnoremap ' :History<CR>
